@@ -20,7 +20,7 @@ void MissingPackagesReceiver::ReadPackage()
         socket->readDatagram(byteArray->data(), byteArray->size());
 
         auto packageNumber = Utils::GetPackageNumber(byteArray);
-        std::cout << "repair package received " << packageNumber << std::endl;
+        std::cout << "repair package received " << packageNumber << std::endl<<std::endl;
 
         delete byteArray;
         byteArray = nullptr;

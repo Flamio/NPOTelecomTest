@@ -58,8 +58,6 @@ void Receiver::Receive()
 
         currentPackageNumber = packageNumber;
 
-        //std::cout<<"received package " << packageNumber << std::endl;
-
         delete byteArray;
         byteArray = nullptr;
     }

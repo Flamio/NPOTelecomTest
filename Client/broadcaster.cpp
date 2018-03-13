@@ -33,10 +33,9 @@ void Broadcaster::Broadcast()
 {
     auto byteArray = packageGenerator->Generate();
 
-    if (qrand() % 1000 != 6)
+    if (qrand() % 2000 != 6)
     {
         udpSocket->writeDatagram(*byteArray, QHostAddress::Broadcast, 5000);
-        std::cout << "package sended " << packageGenerator->GetCurrentPackageId() << std::endl;
     }
 
     delete byteArray;
