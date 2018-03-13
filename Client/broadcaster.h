@@ -3,8 +3,10 @@
 
 #include <QTimer>
 #include <QUdpSocket>
+#include <QThread>
 
 class QByteArray;
+class PackageGenerator;
 
 class Broadcaster : public QObject
 {
@@ -20,8 +22,7 @@ private slots:
 private:
     QTimer* timer;
     QUdpSocket* udpSocket;
-    int messageId;
-
-    QByteArray ConvertIntToByteArray(int number);
+    PackageGenerator* packageGenerator;
+    QThread* repairThread;
 };
 #endif // BROADCASTER_H

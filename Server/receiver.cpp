@@ -18,6 +18,15 @@ Receiver::~Receiver()
     udpSocket = nullptr;
 }
 
+QByteArray Receiver::ConvertIntToByteArray(int number)
+{
+    QByteArray byteArray;
+    QDataStream stream(&byteArray, QIODevice::WriteOnly);
+
+    stream << number;
+    return byteArray;
+}
+
 void Receiver::Receive()
 {
     static int currentPackageNumber = 0;
@@ -40,6 +49,8 @@ void Receiver::Receive()
             std::cout<<"lost package " << currentPackageNumber+1 << std::endl;
             errors++;
             std::cout<<"errors: " << errors<< std::endl;
+
+            udpSocket->writeDatagram(ConvertIntToByteArray(packageNumber), QHostAddress::Broadcast, 5000);
         }
 
         currentPackageNumber = packageNumber;

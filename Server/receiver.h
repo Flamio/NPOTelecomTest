@@ -18,6 +18,8 @@ public slots:
 private:
     QUdpSocket* udpSocket;
     int errors = 0;
+
+    QByteArray ConvertIntToByteArray(int number);
 };
 
 #endif // RECEIVER_H

@@ -46,3 +46,5 @@ build-Server-Desktop_Qt_5_10_1_GCC_64bit-Debug/moc_predefs\.h
 build-Server-Desktop_Qt_5_10_1_GCC_64bit-Debug/moc_receiver\.cpp
 
 build-Server-Desktop_Qt_5_10_1_GCC_64bit-Debug/Server
+
+build-Client-Desktop_Qt_5_10_1_GCC_64bit-Debug/moc_streamrepair\.cpp
