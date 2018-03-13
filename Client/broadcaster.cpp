@@ -10,20 +10,22 @@ Broadcaster::Broadcaster(QObject* parent)
     timer = new QTimer(this);
     udpSocket = new QUdpSocket(this);
 
+    udpSocket->setSocketOption(QAbstractSocket::ReceiveBufferSizeSocketOption, 256000);
+
     QObject::connect(timer, &QTimer::timeout, this, &Broadcaster::Broadcast);
 
-    timer->start(250);
+    timer->start(1);
 }
 
 void Broadcaster::Broadcast()
 {
     QByteArray* byteArray = new QByteArray();
-    byteArray->fill(123, 256000);
+    byteArray->fill('a', 10240);
     messageId ++;
     auto byteMessageId = ConvertIntToByteArray(messageId);
     byteArray->prepend(byteMessageId);
 
-    udpSocket->writeDatagram(*byteArray, QHostAddress::Broadcast, 45454);
+    udpSocket->writeDatagram(*byteArray, QHostAddress::Broadcast, 5000);
     std::cout << "package sended " << messageId << std::endl;
     delete byteArray;
     byteArray = nullptr;
