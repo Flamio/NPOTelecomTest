@@ -48,3 +48,27 @@ build-Server-Desktop_Qt_5_10_1_GCC_64bit-Debug/moc_receiver\.cpp
 build-Server-Desktop_Qt_5_10_1_GCC_64bit-Debug/Server
 
 build-Client-Desktop_Qt_5_10_1_GCC_64bit-Debug/moc_streamrepair\.cpp
+
+build-Client-Desktop_Qt_5_10_1_GCC_64bit-Release/\.qmake\.stash
+
+build-Client-Desktop_Qt_5_10_1_GCC_64bit-Release/Client
+
+build-Client-Desktop_Qt_5_10_1_GCC_64bit-Release/Makefile
+
+build-Client-Desktop_Qt_5_10_1_GCC_64bit-Release/moc_broadcaster\.cpp
+
+build-Client-Desktop_Qt_5_10_1_GCC_64bit-Release/moc_predefs\.h
+
+build-Client-Desktop_Qt_5_10_1_GCC_64bit-Release/moc_streamrepair\.cpp
+
+build-Server-Desktop_Qt_5_10_1_GCC_64bit-Release/\.qmake\.stash
+
+build-Server-Desktop_Qt_5_10_1_GCC_64bit-Release/Makefile
+
+build-Server-Desktop_Qt_5_10_1_GCC_64bit-Release/moc_missingpackagesreceiver\.cpp
+
+build-Server-Desktop_Qt_5_10_1_GCC_64bit-Release/moc_predefs\.h
+
+build-Server-Desktop_Qt_5_10_1_GCC_64bit-Release/moc_receiver\.cpp
+
+build-Server-Desktop_Qt_5_10_1_GCC_64bit-Release/Server
