@@ -1,4 +1,5 @@
 #include <iostream>
+#include <QDataStream>
 #include "receiver.h"
 
 Receiver::Receiver(QObject *parent) : QObject(parent)
@@ -26,8 +27,11 @@ void Receiver::Receive()
         byteArray->resize(int(udpSocket->pendingDatagramSize()));
         udpSocket->readDatagram(byteArray->data(), byteArray->size());
 
-        auto numberBytes = byteArray->mid(0, 8);
-        auto packageNumber = numberBytes.toInt();
+        auto numberBytes = byteArray->mid(0, 4);
+
+        QDataStream ds(numberBytes);
+        int packageNumber = 0;
+        ds >> packageNumber;
 
         std::cout<<"received package " << packageNumber << std::endl;
 
