@@ -17,6 +17,7 @@ public slots:
 
 private:
     QUdpSocket* udpSocket;
+    int errors = 0;
 };
 
 #endif // RECEIVER_H

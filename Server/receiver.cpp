@@ -20,6 +20,8 @@ Receiver::~Receiver()
 
 void Receiver::Receive()
 {
+    static int currentPackageNumber = 0;
+
     QByteArray* byteArray = nullptr;
     while (udpSocket->hasPendingDatagrams())
     {
@@ -33,7 +35,16 @@ void Receiver::Receive()
         int packageNumber = 0;
         ds >> packageNumber;
 
-        std::cout<<"received package " << packageNumber << std::endl;
+        if (packageNumber != currentPackageNumber+1 && currentPackageNumber !=0)
+        {
+            std::cout<<"lost package " << currentPackageNumber+1 << std::endl;
+            errors++;
+            std::cout<<"errors: " << errors<< std::endl;
+        }
+
+        currentPackageNumber = packageNumber;
+
+        //std::cout<<"received package " << packageNumber << std::endl;
 
         delete byteArray;
         byteArray = nullptr;

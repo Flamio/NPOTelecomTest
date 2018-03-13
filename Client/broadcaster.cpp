@@ -1,5 +1,6 @@
 #include <iostream>
 #include <QDataStream>
+#include <QTime>
 #include "broadcaster.h"
 
 
@@ -15,6 +16,9 @@ Broadcaster::Broadcaster(QObject* parent)
     QObject::connect(timer, &QTimer::timeout, this, &Broadcaster::Broadcast);
 
     timer->start(1);
+
+    QTime midnight(0,0,0);
+    qsrand(midnight.secsTo(QTime::currentTime()));
 }
 
 void Broadcaster::Broadcast()
@@ -25,8 +29,12 @@ void Broadcaster::Broadcast()
     auto byteMessageId = ConvertIntToByteArray(messageId);
     byteArray->prepend(byteMessageId);
 
-    udpSocket->writeDatagram(*byteArray, QHostAddress::Broadcast, 5000);
-    std::cout << "package sended " << messageId << std::endl;
+    if (qrand() % 1000 != 6)
+    {
+        udpSocket->writeDatagram(*byteArray, QHostAddress::Broadcast, 5000);
+        std::cout << "package sended " << messageId << std::endl;
+    }
+
     delete byteArray;
     byteArray = nullptr;
 }
