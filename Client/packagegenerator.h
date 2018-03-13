@@ -9,6 +9,7 @@ public:
     QByteArray* Generate(QByteArray* packageId = nullptr);
 
     int GetCurrentPackageId();
+    int GetPackageId(QByteArray* array);
 
 private:
     int packageId = 0;

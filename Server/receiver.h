@@ -3,7 +3,9 @@
 
 #include <QObject>
 #include <QUdpSocket>
+#include "missingpackagesreceiver.h"
 
+class QThread;
 class Receiver : public QObject
 {
     Q_OBJECT
@@ -20,6 +22,8 @@ private:
     int errors = 0;
 
     QByteArray ConvertIntToByteArray(int number);
+    QThread* repairThread;
+    MissingPackagesReceiver* missingPackagesReceiver;
 };
 
 #endif // RECEIVER_H

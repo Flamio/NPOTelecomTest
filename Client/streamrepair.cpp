@@ -22,8 +22,8 @@ void StreamRepair::ReadPackage()
 
         auto repairedPackage = packageGenerator->Generate(byteArray);
 
-        socket->writeDatagram(*repairedPackage, QHostAddress::Broadcast, 5001);
-        std::cout << " repair package sended " << packageGenerator->GetCurrentPackageId() << std::endl;
+        socket->writeDatagram(*repairedPackage, QHostAddress::Broadcast, 5002);
+        std::cout << "repair package sended " << packageGenerator->GetCurrentPackageId() << std::endl;
 
         delete byteArray;
         byteArray = nullptr;
